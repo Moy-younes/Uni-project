@@ -1,0 +1,52 @@
+INITDEV(1)                                                User Commands                                                            INITDEV(1)
+
+NAME
+      initdev - initialisation de projets
+
+Syntax
+      initdev  [OPTION]... NOM_PROJECT...
+
+DESCRIPTION
+      un outil d’initialisation de projets
+
+ARGUMENTS
+
+      –C,       --Projet en langage C
+                  créer un projet pour une application en langage C
+
+      –CPP,     --Projet en langage C++ 
+                  créer un projet pour une application en langage C++
+
+      –Py,      --Projet en langage python
+                  créer un projet pour une application en langage python
+
+      –Latex,   --Projet de rédaction en Latex
+                  créer un projet avec une rédaction en Latex
+
+      –BEAMER,  --Projet de présentation en BEAMER
+                  créer un projet avec une rédaction en BEAMER
+ 
+      –GPL,     --GENERAL PUBLIC LICENSE
+                  mettre le projet sous licence GPL
+
+      –MIT,     --Licence MIT
+                  mettre le projet sous licence MIT
+
+      -git,     --Initialisation d'un dépot git 
+                  Initialisation d'un dépot git et l'ajout d'un fichier ".gitignore" qui sert de filtre pour git
+
+           la fonctionnalité -git ne peut pas être utilisé avant l'utilisation de l'une des fonctionnalité suivant : –C,–CPP,–Py,–Latex,–BEAMER
+
+AUTHOR
+     Écrit par MOKHTARI Younès , 
+     Pers.Mail: myous1234@gmail.com
+
+
+COPYRIGHT
+     C'est un logiciel libre: vous êtes libre de le modifier et de le redistribuer. Il n'y a AUCUNE GARANTIE, dans la mesure permise par la loi.
+
+                                                           Avril 2018
+
+
+
+
