@@ -35,7 +35,7 @@ ARGUMENTS
       -git,     --Initialisation d'un dépot git 
                   Initialisation d'un dépot git et l'ajout d'un fichier ".gitignore" qui sert de filtre pour git
 
-           la fonctionnalité -git ne peut pas être utilisé avant l'utilisation de l'une des fonctionnalité suivant : –C,–CPP,–Py,–Latex,–BEAMER
+           la fonctionnalité -git ne peut pas être utilisé sans utiliser l'une des fonctionnalité suivant : –C,–CPP,–Py,–Latex,–BEAMER
 
 AUTHOR
      Écrit par MOKHTARI Younès , 
