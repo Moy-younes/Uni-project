@@ -4,9 +4,7 @@ if [ -z $1 ]
 then echo "Expected arguments, please check the help : initdev –help" ; echo 1 ;
 elif [ "$1" = "help" ]
     then nano help
-
-elif [ s=0 ]
-then s=0; for i in $2 $3 $4 $5
+else s=0; for i in $2 $3 $4 $5
        do
         if [ -n $i ] 
           then s=`expr $s + 1`
@@ -14,43 +12,38 @@ then s=0; for i in $2 $3 $4 $5
         done
      if [ $s = 0 ]
        then   mkdir $1 ; touch $1/main ; touch $1/LICENSE ; touch $1/Makefile ; echo 0 ;
-
-
-    elif [ k=0 ] 
-        then k=0 ;for i in  $2 $3 $4 $5
-               do 
-               if [ "$i" != "C" ] && [ "$i" != "CPP" ] && [ "$i" != "Py" ] && [ "$i" != "Latex" ] &&[ "$i" != "BEAMER" ] && [ "$i" != "GPL" ] && [ "$i" != "MIT" ] && [ "$i" != "git" ]
+     else k=0 ;
+             for i in  $2 $3 $4 $5
+              do 
+               if [ "$i" != "C" ] && [ "$i" != "CPP" ] && [ "$i" != "Py" ] && [ "$i" != "Latex" ] && [ "$i" != "BEAMER" ] && [ "$i" != "GPL" ] && [ "$i" != "MIT" ] && [ "$i" != "git" ]
                  then k=`expr $k + 1`
                  fi 
-               done 
-            if [ $k != 0 ]
-             then echo "Expected arguments, please check the help : initdev –help" ;echo 1;
+              done
 
-            else   l=0;  
+            if [ $k != 0 ]
+                then echo "Expected arguments, please check the help : initdev –help" ;echo 1;
+            else l=1;n=0;N=0; 
 
                 for i in $2 $3 $4 $5
                   do
-                   if [ "$i" = "git" ] 
-                    then n=$l;
-                         g=0 ;  for i in $2 $3 $4 $5
+                    if [ "$i" = "git" ] 
+                      then n=$l; g=1 ; 
+                                 for i in $2 $3 $4 $5
                                   do 
-                                     if [ "$i" = "C" ] || [ "$i" = "CPP" ] || [ "$i" = "Py" ] || [ "$i" = "Latex" ]
-                                      then N=$g ;
-                                    elif [ -z $N ] 
-                                      then N=10 ;
-                                     fi
-                                     g=`expr $g + 1`
+                                      if [ "$i" = "C" ] || [ "$i" = "CPP" ] || [ "$i" = "Py" ] || [ "$i" = "Latex" ] || [ "$i" = "BEAMER" ]
+                                        then N=$g  
+                                      fi
+                                       g=`expr $g + 1`
                                   done
-                    elif [ -z $n ]
-                      then  n=1;N=0;
-                    fi 
-                   l=`expr $l + 1`
-                  done
+                              
 
-                   if [ $n -lt $N ] 
-                     then echo "You must set project type, please check the help : initdev –help " ;echo 1;
+                      fi 
+                       l=`expr $l + 1` 
+                   done
 
-                     else mkdir $1 ;touch $1/LICENSE ; touch $1/Makefile ;
+                if [ $n != 0 ] && [ $N = 0 ]
+                    then echo "You must set project type, please check the help : initdev –help " ;echo 1;
+                else mkdir $1 ;touch $1/LICENSE ; touch $1/Makefile ;
                 
                           for i in $2 $3 $4 $5 
                           do 
@@ -97,6 +90,12 @@ then s=0; for i in $2 $3 $4 $5
         
                             if [ "$i" = "BEAMER" ]
                                then cp initdev1/sources/beamer.tex $1 ; echo 0 ;
+                                 for j in $2 $3 $4 $5
+                                 do
+                                   if [ "$j" = "git" ]  
+                                    then cp initdev1/gitignores/tex $1 ; mv $1/tex $1/.gitignore ;git init ; echo 0 ;
+                                   fi
+                                 done
                             fi
                              
                             if [ "$i" = "GPL" ]
@@ -107,13 +106,16 @@ then s=0; for i in $2 $3 $4 $5
                                then  cat initdev1/licenses/MIT > $1/LICENSE
                             fi
 
-                          done 
-              
+                          done
                     fi
-                  fi
-               
-              fi
+               fi
+        fi
 fi
+
+
+
+
+
 
 
 
