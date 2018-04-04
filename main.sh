@@ -35,8 +35,7 @@ else s=0; for i in $2 $3 $4 $5
                                       fi
                                        g=`expr $g + 1`
                                   done
-                              
-
+                      
                       fi 
                        l=`expr $l + 1` 
                    done
