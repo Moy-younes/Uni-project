@@ -2,7 +2,7 @@
 
 if [ -z $1 ]
 then echo "Expected arguments, please check the help : initdev –help" ; echo 1 ;
-elif [ "$1" = "help" ]
+elif [ "$1" = "-help" ]
     then nano help
 else s=0; for i in $2 $3 $4 $5
        do
@@ -15,7 +15,7 @@ else s=0; for i in $2 $3 $4 $5
      else k=0 ;
              for i in  $2 $3 $4 $5
               do 
-               if [ "$i" != "C" ] && [ "$i" != "CPP" ] && [ "$i" != "Py" ] && [ "$i" != "Latex" ] && [ "$i" != "BEAMER" ] && [ "$i" != "GPL" ] && [ "$i" != "MIT" ] && [ "$i" != "git" ]
+               if [ "$i" != "-C" ] && [ "$i" != "-CPP" ] && [ "$i" != "-Py" ] && [ "$i" != "-Latex" ] && [ "$i" != "-BEAMER" ] && [ "$i" != "-GPL" ] && [ "$i" != "-MIT" ] && [ "$i" != "-git" ]
                  then k=`expr $k + 1`
                  fi 
               done
@@ -26,11 +26,11 @@ else s=0; for i in $2 $3 $4 $5
 
                 for i in $2 $3 $4 $5
                   do
-                    if [ "$i" = "git" ] 
+                    if [ "$i" = "-git" ] 
                       then n=$l; g=1 ; 
                                  for i in $2 $3 $4 $5
                                   do 
-                                      if [ "$i" = "C" ] || [ "$i" = "CPP" ] || [ "$i" = "Py" ] || [ "$i" = "Latex" ] || [ "$i" = "BEAMER" ]
+                                      if [ "$i" = "-C" ] || [ "$i" = "-CPP" ] || [ "$i" = "-Py" ] || [ "$i" = "-Latex" ] || [ "$i" = "-BEAMER" ]
                                         then N=$g  
                                       fi
                                        g=`expr $g + 1`
@@ -47,61 +47,61 @@ else s=0; for i in $2 $3 $4 $5
                           for i in $2 $3 $4 $5 
                           do 
 
-                            if [ "$i" = "C" ] 
+                            if [ "$i" = "-C" ] 
                                then cp initdev1/sources/main.c $1 ; echo 0 ;
                                  for j in $2 $3 $4 $5
                                  do
-                                   if [ "$j" = "git" ]  
+                                   if [ "$j" = "-git" ]  
                                     then cp initdev1/gitignores/c $1 ; mv $1/c $1/.gitignore ;git init ;echo 0 ;        
                                    fi
                                  done
                              fi
          
-                              if [ "$i" = "CPP" ]   
+                              if [ "$i" = "-CPP" ]   
                              then cp initdev1/sources/main.cpp $1 ; echo 0 ;
                                  for j in $2 $3 $4 $5
                                  do
-                                   if [ "$j" = "git" ]  
+                                   if [ "$j" = "-git" ]  
                                     then cp initdev1/gitignores/cpp $1 ;mv $1/cpp $1/.gitignore ;git init ; echo 0 ;
                                    fi
                                  done
                              fi
         
-                            if [ "$i" = "Py" ]
+                            if [ "$i" = "-Py" ]
                               then  cp initdev1/sources/main.py $1 ; echo 0 ;        
                                  for j in $2 $3 $4 $5
                                  do
-                                   if [ "$j" = "git" ]  
+                                   if [ "$j" = "-git" ]  
                                     then cp initdev1/gitignores/python $1 ;mv $1/python $1/.gitignore ;git init ;echo 0 ;        
                                    fi
                                  done
                             fi
 
-                            if [ "$i" = "Latex" ]
+                            if [ "$i" = "-Latex" ]
                                then cp initdev1/sources/latexMin.tex $1 ; echo 0 ;
                                  for j in $2 $3 $4 $5
                                  do
-                                   if [ "$j" = "git" ]  
+                                   if [ "$j" = "-git" ]  
                                     then cp initdev1/gitignores/tex $1 ; mv $1/tex $1/.gitignore ;git init ; echo 0 ;
                                    fi
                                  done
                             fi
         
-                            if [ "$i" = "BEAMER" ]
+                            if [ "$i" = "-BEAMER" ]
                                then cp initdev1/sources/beamer.tex $1 ; echo 0 ;
                                  for j in $2 $3 $4 $5
                                  do
-                                   if [ "$j" = "git" ]  
+                                   if [ "$j" = "-git" ]  
                                     then cp initdev1/gitignores/tex $1 ; mv $1/tex $1/.gitignore ;git init ; echo 0 ;
                                    fi
                                  done
                             fi
                              
-                            if [ "$i" = "GPL" ]
+                            if [ "$i" = "-GPL" ]
                                then  cat initdev1/licenses/GPL > $1/LICENSE
                             fi
 
-                            if [ "$i" = "MIT" ]
+                            if [ "$i" = "-MIT" ]
                                then  cat initdev1/licenses/MIT > $1/LICENSE
                             fi
 
