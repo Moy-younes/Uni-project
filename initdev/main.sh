@@ -1,9 +1,12 @@
 #!/bin/bash
 
-if [ -z $1 ]
+if [ -z $1 ]                                #gestion de cas : exécute le programme sans donner le nom du projet
 then echo "Expected arguments, please check the help : initdev –help" ; echo 1 ;
 elif [ "$1" = "-help" ]
     then nano help
+
+#Fonctionnalités de base
+
 else s=0; for i in $2 $3 $4 $5
        do
         if [ -n $i ] 
@@ -12,8 +15,11 @@ else s=0; for i in $2 $3 $4 $5
         done
      if [ $s = 0 ]
        then   mkdir $1 ; touch $1/main ; touch $1/LICENSE ; touch $1/Makefile ; echo 0 ;
+
+#Fonctionnalités avancées
+
      else k=0 ;
-             for i in $2 $3 $4 $5
+             for i in $2 $3 $4 $5            #gestion de cas :type d'argument incomnnu
               do 
                if [ "$i" != "-C" ] && [ "$i" != "-CPP" ] && [ "$i" != "-Py" ] && [ "$i" != "-Latex" ] && [ "$i" != "-BEAMER" ] && [ "$i" != "-GPL" ] && [ "$i" != "-MIT" ] && [ "$i" != "-git" ]
                  then k=`expr $k + 1`
@@ -24,9 +30,9 @@ else s=0; for i in $2 $3 $4 $5
                 then echo "Expected arguments, please check the help : initdev –help" ;echo 1;
             else l=1;n=0;N=0; 
 
-                for i in $2 $3 $4 $5
+                for i in $2 $3 $4 $5 
                   do
-                    if [ "$i" = "-git" ] 
+                    if [ "$i" = "-git" ]      #gestion de cas :demande de création d’un dépôt git sans préciser le langage du projet
                       then n=$l; g=1 ; 
                                  for i in $2 $3 $4 $5
                                   do 
@@ -44,7 +50,7 @@ else s=0; for i in $2 $3 $4 $5
                     then echo "You must set project type, please check the help : initdev –help " ;echo 1;
                 else mkdir $1 ;touch $1/LICENSE ; touch $1/Makefile ;
                 
-                          for i in $2 $3 $4 $5 
+                          for i in $2 $3 $4 $5   #gestion des arguments
                           do 
 
                             if [ "$i" = "-C" ] 
@@ -111,10 +117,4 @@ else s=0; for i in $2 $3 $4 $5
         fi
 fi
 
-
-
-
-
-
-
-
+#les variables s,k,l,et N pour faire des testes logique   
