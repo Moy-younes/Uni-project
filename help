@@ -4,7 +4,7 @@ NAME
       initdev - initialisation de projets
 
 Syntax
-      initdev  [OPTION]... NOM_PROJECT...
+      initdev  NOM_PROJECT...[OPTION] ...
 
 DESCRIPTION
       un outil d’initialisation de projets
