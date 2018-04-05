@@ -36,6 +36,8 @@ ARGUMENTS
                   Initialisation d'un dépot git et l'ajout d'un fichier ".gitignore" qui sert de filtre pour git
 
            la fonctionnalité -git ne peut pas être utilisé sans utiliser l'une des fonctionnalité suivant : –C,–CPP,–Py,–Latex,–BEAMER
+  
+      -help     --affiche cette aide 
 
 AUTHOR
      Écrit par MOKHTARI Younès , 
